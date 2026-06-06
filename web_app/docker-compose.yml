@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: fuzzy-web-app
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=/app/app/fuzzy_text_model.pkl
+    restart: unless-stopped

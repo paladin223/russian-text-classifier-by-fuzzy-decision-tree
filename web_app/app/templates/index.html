@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/style.css?v=2" />
+</head>
+<body class="theme-{{ theme }}">
+    <main class="page">
+        <section class="card">
+            <h1>{{ title }}</h1>
+            <p class="status">{{ model_status }}</p>
+
+            <form method="post" action="/predict?theme={{ theme }}" class="predict-form">
+                <label for="text">Введите текст:</label>
+                <textarea
+                    id="text"
+                    name="text"
+                    rows="8"
+                    placeholder="Например: Курс рубля вырос на фоне торгов..."
+                >{{ input_text }}</textarea>
+                <button type="submit">Классифицировать</button>
+            </form>
+
+            {% if prediction %}
+            <div class="result success">
+                <span>Предсказанный класс:</span>
+                <strong>{{ prediction }}</strong>
+            </div>
+            {% endif %}
+
+            {% if error %}
+            <div class="result error">
+                <strong>Ошибка:</strong> {{ error }}
+            </div>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

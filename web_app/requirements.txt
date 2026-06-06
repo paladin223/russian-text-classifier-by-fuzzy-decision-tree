@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+numpy
+pandas
+scikit-learn
+pymorphy3
+pymorphy3-dicts-ru
